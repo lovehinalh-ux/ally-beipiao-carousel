@@ -23,6 +23,12 @@ ally-beipiao-carousel/
 
 ## 規格
 
-- 尺寸：每頁 405 × 506（顯示）
+- 尺寸：每頁 405 × 506（顯示）／出圖 1620 × 2024
 - 帳號：@chapeiyi
 - 頁數：7（S1 封面 → S7 收尾 CTA）
+
+## 要改它？（餵 AI 編輯）
+
+- [`HTML-SPEC.md`](./HTML-SPEC.md) — 完整規格書，含逐頁藍圖、可改/禁改清單、AI prompt 範本。改文案/調排版看這份。
+- [`TEMPLATE-SPEC.md`](./TEMPLATE-SPEC.md) — 換圖與遮罩專用快查。
+- 出圖：`node export.cjs` → `output/`
