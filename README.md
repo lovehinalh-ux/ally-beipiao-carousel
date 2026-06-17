@@ -6,17 +6,20 @@
 
 下載整個資料夾，**雙擊 `index.html`** 即在瀏覽器看到完整 7 頁。
 
-不需安裝任何東西、不需網路（字型走 Google Fonts CDN，離線時退回系統字型）。
+不需安裝任何東西、**不需網路**。字型（Noto Sans TC）已打包進 `fonts/`，離線也是完全相同的字體。
 
 ## 檔案結構
 
 ```
 ally-beipiao-carousel/
-├── index.html      # 輪播本體
-└── S1.jpg ~ S7.jpg # 7 張背景圖（與 index.html 同層，相對路徑引用）
+├── index.html          # 輪播本體
+├── S1.jpg ~ S7.jpg     # 7 張背景圖（與 index.html 同層）
+└── fonts/              # 打包的 Noto Sans TC（子集化，只含用到的字）
+    ├── fonts.css       # @font-face 定義
+    └── NotoSansTC-*.woff2  # 400/500/700/800/900 五個字重
 ```
 
-`index.html` 用相對路徑 `url('S1.jpg')` 引圖，只要圖片與 HTML 同層即完美顯示。整個資料夾搬到任何地方都能跑。
+`index.html` 用相對路徑引圖（`url('S1.jpg')`）與字型（`fonts/fonts.css`），整個資料夾搬到任何地方、離線都完美顯示。
 
 ## 規格
 
