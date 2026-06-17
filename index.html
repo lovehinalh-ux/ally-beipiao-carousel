@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30歲女生，北漂十年｜@chapeiyi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-style: normal; }
+
+    :root {
+      --ink:          #ffffff;
+      --soil:         rgba(255, 255, 255, 0.88);
+      --muted:        rgba(255, 255, 255, 0.68);
+      --ash:          rgba(255, 255, 255, 0.50);
+      --accent:       #b89ae8;
+      --accent-soft:  #d8c4f2;
+      --line-accent:  rgba(184, 154, 232, 0.45);
+      --shadow:       0 18px 44px rgba(40, 10, 80, 0.45);
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 36px 0 56px;
+      background: linear-gradient(160deg, #5a3d7a 0%, #34205a 100%);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .slide-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.70);
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: -10px;
+    }
+
+    /* ─── Slide shell ─── */
+    .slide {
+      width: 405px;
+      height: 506px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      background: linear-gradient(160deg, #4a3470 0%, #6044a0 50%, #3a2860 100%);
+    }
+
+    /* Layer 1: 照片背景 */
+    .slide .bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    /* Layer 2: Purple overlay — 壓在照片上 */
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(72, 35, 130, 0.40) 0%,
+        rgba(62, 28, 112, 0.62) 55%,
+        rgba(48, 18, 92, 0.82) 100%
+      );
+    }
+
+    /* ─── Layout ─── */
+    .topbar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 20px 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 20px 9px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    .dots { display: flex; gap: 6px; align-items: center; }
+    .dots span { width: 4px; height: 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.35); }
+    .dots span.on { width: 12px; background: rgba(255, 255, 255, 0.88); }
+
+    /* ─── Main content area — 直接壓在背景上 ─── */
+    .main {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 24px 16px;
+    }
+    .main.top { justify-content: flex-start; padding-top: 22px; }
+
+    /* ─── Typography — 直接壓背景 ─── */
+    .g-label {
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 9px; font-weight: 900;
+      letter-spacing: 1.4px;
+    }
+    .title-xl { font-size: 30px; font-weight: 900; line-height: 1.28; color: var(--ink); }
+    .title-lg { font-size: 22px; font-weight: 900; line-height: 1.42; color: var(--ink); }
+    .body-md { font-size: 14.5px; font-weight: 500; line-height: 1.82; color: var(--soil); }
+    .body-sm { font-size: 12px; font-weight: 500; line-height: 1.8; color: var(--muted); }
+    .accent { color: var(--accent); font-weight: 900; }
+
+    .quote-large {
+      font-size: 26px; font-weight: 900;
+      line-height: 1.38; color: var(--ink);
+      text-align: center;
+    }
+
+    /* ─── Sub-box：底部補充文字用的輕薄卡片 ─── */
+    .sub-box {
+      margin-top: 20px;
+      padding: 15px 17px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .sub-box p {
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.85;
+      color: var(--soil);
+    }
+
+    /* ─── Rail-box：側邊框強調 ─── */
+    .rail-box {
+      margin-top: 16px; padding: 14px 16px;
+      border-left: 3px solid rgba(255, 255, 255, 0.55);
+      border-radius: 0 10px 10px 0;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .rail-box p { font-size: 13px; font-weight: 500; line-height: 1.82; color: var(--soil); }
+
+    /* ─── Step list ─── */
+    .step-stack { display: grid; gap: 14px; margin-top: 18px; }
+    .step-item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+    .step-item b {
+      display: grid; place-items: center;
+      width: 34px; height: 34px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.90);
+      color: #3a1a60; font-size: 14px; font-weight: 900;
+      flex-shrink: 0;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .step-item .step-title { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+    .step-item .step-sub  { font-size: 11.5px; font-weight: 400; color: var(--muted); line-height: 1.7; margin-top: 2px; }
+
+    /* ─── CTA box ─── */
+    .cta-box {
+      width: 100%;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      text-align: center;
+    }
+    .cta-box p { font-size: 12.5px; font-weight: 700; color: var(--soil); line-height: 1.8; }
+
+    /* ─── Divider ─── */
+    .divider {
+      width: 36px; height: 2px; margin: 14px 0;
+      background: rgba(255, 255, 255, 0.40); border-radius: 999px;
+    }
+
+    /* ─── Hint ─── */
+    .hint {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-label">S1 — 封面</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S1.jpg')"></div>
+    <div class="topbar"><span>01</span><span>北漂 10Y</span></div>
+    <div class="main" style="justify-content: flex-end; padding-bottom: 18px; align-items: flex-end; text-align: right;">
+      <div class="g-label" style="text-align: right;">我的人生故事</div>
+      <div class="title-xl" style="text-align: right; font-size: 28px; line-height: 1.24;">30歲女生<br>北漂十年<br>我把人生<br>最精華的<span class="accent">20-30歲</span><br>全拿去<span class="accent" style="font-size: 40px;">追夢</span></div>
+      <div class="sub-box" style="text-align:center; align-self:stretch;">
+        <p>最後我沒紅，也沒賺到什麼大錢。<br>但如果重來一次，我還是會做同樣的選擇。</p>
+      </div>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">往右滑看全文 -></span>
+        <div class="dots"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S2 — 共感開場</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S2.jpg')"></div>
+    <div class="topbar"><span>02</span><span>共感</span></div>
+    <div class="main">
+      <div class="g-label">你有沒有也曾經這樣</div>
+      <div class="title-lg">快30歲的時候<br>開始忍不住回頭看</div>
+      <div style="margin-top:12px;">
+        <p class="body-md" style="color:rgba(255,255,255,0.80);">有人結婚了、有人買房了、有人升主管了</p>
+        <p class="body-md" style="color:var(--ink); font-weight:700; margin-top:8px;">而我呢？</p>
+        <p class="body-sm" style="color:var(--muted); margin-top:6px;">30歲的我，沒有明星光環、沒有百萬存款、甚至走過不少彎路。</p>
+      </div>
+      <div class="sub-box" style="margin-top:14px;">
+        <p>有時候我也會想：<br>那些年為了夢想付出的代價，值得嗎？</p>
+      </div>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">繼續下一頁--></span>
+        <div class="dots"><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S3 — 問題拆解</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S3.jpg')"></div>
+    <div class="topbar"><span>03</span><span>代價</span></div>
+    <div class="main">
+      <div class="g-label">我為夢想付出的代價</div>
+      <div class="title-lg" style="font-size:19px;">這十年，我為夢想付出的代價</div>
+      <div class="step-stack" style="margin-top:12px; gap:10px;">
+        <div class="step-item">
+          <b>1</b>
+          <div><p class="step-title">重考一年，從商科轉考藝術大學</p></div>
+        </div>
+        <div class="step-item">
+          <b>2</b>
+          <div><p class="step-title">當過賈靜雯、陳妍希的替身</p></div>
+        </div>
+        <div class="step-item">
+          <b>3</b>
+          <div><p class="step-title">徵選啦啦隊，進決賽卻被刷掉</p></div>
+        </div>
+        <div class="step-item">
+          <b>4</b>
+          <div><p class="step-title">住不到五坪的木板隔間雅房</p></div>
+        </div>
+      </div>
+      <p class="body-sm" style="margin-top:14px; color:rgba(255,255,255,0.72);">那時候的我總以為：只要再努力一點，離成功就會更近一點。</p>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">繼續下一頁--></span>
+        <div class="dots"><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S4 — 觀點轉折</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S4.jpg'); background-position: center 50%;"></div>
+    <div class="topbar"><span>04</span><span>不後悔</span></div>
+    <div class="main" style="justify-content: flex-end; padding-bottom: 18px;">
+      <div class="title-lg">最後我沒紅，也沒有錢</div>
+      <div class="divider" style="margin: 10px 0;"></div>
+      <div class="rail-box" style="margin-top: 0;">
+        <p>但你問我後不後悔？<br><span class="accent">我能很篤定地說：不後悔。</span><br><br>後悔自己從來沒有為夢想拼過一次，才是真正的後悔。</p>
+      </div>
+      <p class="body-sm" style="margin-top:10px; color:rgba(255,255,255,0.78);">夢想的價值，從來不是你最後有沒有成功。<br>而是它把你變成了什麼樣的人。</p>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">繼續下一頁--></span>
+        <div class="dots"><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S5 — 方法整理</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S5.jpg')"></div>
+    <div class="topbar"><span>05</span><span>能力</span></div>
+    <div class="main">
+      <div class="g-label">夢想送給我的能力</div>
+      <div class="title-lg" style="font-size:19px;">夢想沒有實現，但它送給我<br>3個一輩子受用的能力</div>
+      <div class="step-stack" style="margin-top:14px;">
+        <div class="step-item">
+          <b>1</b>
+          <div>
+            <p class="step-title">主動行動的能力</p>
+            <p class="step-sub">直播沒人互動，我可以自己講滿三小時。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <b>2</b>
+          <div>
+            <p class="step-title">自我學習的能力</p>
+            <p class="step-sub">很多技能，都是沒有人教我，只能自己摸索出來的。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <b>3</b>
+          <div>
+            <p class="step-title">面對失敗的能力</p>
+            <p class="step-sub">被拒絕並不可怕，放棄成長才可怕。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">繼續下一頁--></span>
+        <div class="dots"><span></span><span></span><span></span><span></span><span class="on"></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S6 — 自我回望</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S6.jpg')"></div>
+    <div class="topbar"><span>06</span><span>底氣</span></div>
+    <div class="main">
+      <div class="g-label">最大的收穫</div>
+      <div class="title-lg">北漂十年<br>最大的收穫</div>
+      <div class="divider"></div>
+      <div class="rail-box">
+        <p>不是名氣，不是存款。<br><br>而是那個曾經內向、沒自信、害怕被看見的女生——<br>慢慢變成<span class="accent">願意爭取、願意挑戰、願意相信自己</span>的人。</p>
+      </div>
+      <p class="body-sm" style="margin-top:12px; color:rgba(255,255,255,0.72);">那些看似沒有結果的十年，其實都變成了我的底氣。</p>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+        <span class="hint">繼續下一頁--></span>
+        <div class="dots"><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="slide-label">S7 — 開啟新章</div>
+  <section class="slide">
+    <div class="bg" style="background-image: url('S7.jpg')"></div>
+    <div class="topbar"><span>07</span><span>全新賽局</span></div>
+    <div class="main" style="align-items:flex-end; text-align:right; justify-content: flex-end; padding-bottom: 16px;">
+      <div class="g-label" style="text-align:right;">開啟新章</div>
+      <div class="title-lg" style="text-align:right;">人生到30歲<br>不是一場成果發表會<br>也不是人生KPI結算日</div>
+      <p class="body-sm" style="margin-top:14px; color:rgba(255,255,255,0.78); text-align:right; font-size:13px; line-height:1.95;">羽翼正慢慢豐滿<br>故事才正要開始</p>
+      <div class="cta-box" style="margin-top:18px; align-self:stretch; text-align:center; padding:20px 18px 18px;">
+        <p style="font-size:12.5px; line-height:1.95;">如果你也曾為夢想奮不顧身過，留言跟我分享<br><br>收藏這篇，送給那個偶爾懷疑自己的人<br><br>追蹤 <span class="accent">@chapeiyi</span>，一起記錄北漂十年後的人生全新賽局</p>
+      </div>
+    </div>
+    <div class="footer">
+      <span>@chapeiyi</span>
+      <div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span></div>
+    </div>
+  </section>
+
+</body>
+</html>
